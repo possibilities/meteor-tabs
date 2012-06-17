@@ -1,0 +1,45 @@
+<template name="tabs">
+  <div class="tabbable">
+
+    <ul class="nav nav-tabs">
+      {{tabs}}
+    </ul>
+
+    <div class="tab-content">
+      {{> tabContents}}
+    </div>
+
+  </div>
+</template>
+
+<template name="tabContents">
+  {{#each tabContents}}
+    <div class="tab-pane" id="{{name}}">
+      {{tabBody}}
+    </div>
+  {{/each}}
+</template>
+
+<template name="tab">
+  <li{{#if default}} class="default-tab"{{/if}}>
+    <a href="{{path}}" data-target="#{{name}}" data-toggle="tab">
+      {{label}}
+    </a>
+  </li>
+</template>
+
+<template name="dropdown">
+  <li class="dropdown">
+
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      {{label}} <b class="caret"></b>
+    </a>
+
+    <ul class="dropdown-menu">
+      {{#each tabs}}
+        {{> tab}}
+      {{/each}}
+    </ul>
+
+  </li>
+</template>
