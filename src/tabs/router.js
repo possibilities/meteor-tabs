@@ -1,5 +1,3 @@
-console.log('lib router');
-
 var TabRouter = Backbone.Router.extend({
 
   // Route everything through showTag(), it'll
