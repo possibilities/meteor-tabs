@@ -7,32 +7,15 @@
     <h1>Meteor Tabs Demo</h1>
     <p><em>Smart package for generating a tabbed interface with pushState</em></p>
     <div class="row">
+
       <div class="span6">
-        {{pets}}
+        {{> tabbedNav}}
       </div>
+
       <div class="span6">
         {{{code "demo/client/tabs.js"}}}
+        {{{code "demo/client/tabs.html"}}}
       </div>
     </div>
   </div>
 </body>
-
-<template name="fishesBetas">
-  <h3><strong>Beta Fishes</strong></h3>
-  <p>Beta fish content</p>
-</template>
-
-<template name="fishesGoldfish">
-  <h3><strong>Goldfish Fishes</strong></h3>
-  <p>Goldfish content</p>
-</template>
-
-<template name="cats">
-  <h3><strong>Cats</strong></h3>
-  <p>Cats content</p>
-</template>
-
-<template name="dogs">
-  <h3><strong>Dogs</strong></h3>
-  <p>Dogs content</p>
-</template>

@@ -1,6 +1,6 @@
 
 // Declare tabs for your pet app!
-new Tabs('pets', [
+new Tabs('petTabs', [
 
   // Set a default, yay!
   'cats', {
