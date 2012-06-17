@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "Smart package for generating a tabbed interface"
+  summary: "Smart package for generating a tabbed interface with pushState"
 });
 
 Package.on_use(function (api) {
