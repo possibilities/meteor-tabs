@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "TODO"
+  summary: "Smart package for generating a tabbed interface"
 });
 
 Package.on_use(function (api) {
