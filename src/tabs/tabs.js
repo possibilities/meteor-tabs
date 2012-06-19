@@ -34,23 +34,20 @@ Tabs.prototype._configureTab = function(tab, parent) {
 
   if (parent && parent.name)
     tab.path = parent.name + '/' + tab.path;
-  
+
+  // TODO this is in more than one spot
+  tab.target = _.camelize(tab.path.replace('/', '_'));
+
   return tab;
 };
 
-Tabs.prototype._configureTabContent = function(tabName, tabParentName) {
+Tabs.prototype._configureTabContent = function(tab) {
   // Just add the tab name to the list, used by template
-  var path = tabName;
-  if (tabParentName)
-    path = tabParentName + '/' + path;
-  this.tabContents.push({
-    name: tabName,
-    path: path
-  });
+  this.tabContents.push(tab);
 };
 
 Tabs.prototype._renderTab = function(tab) {
-  this._configureTabContent(tab.name);
+  this._configureTabContent(tab);
   return Template.tab(tab);
 };
 
@@ -61,7 +58,7 @@ Tabs.prototype._renderTabs = function(tabs) {
     var rawDropdown = _.pairArrayItems(tabs.tabs, 'name', 'tabs');
     tabs.tabs = _.map(rawDropdown, function(tab) {
       tab = self._configureTab(tab, tabs)
-      self._configureTabContent(tab.name, tabs.name);
+      self._configureTabContent(tab);
       return tab;
     });
     var dropdown = self._configureTab(tabs);
@@ -116,7 +113,7 @@ Template.tabs.events = {
   'click .nav-tabs li a': function showTab(e) {
     e.preventDefault();
     var $el = $(e.currentTarget);
-    if ($el.data('toggle') !== 'dropdown' && $el.data('target')) {
+    if ($el.data('toggle') !== 'dropdown') {
       var route = $el.attr('href');
       tabRouter.navigate(route, { trigger: true });
     }

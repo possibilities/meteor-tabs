@@ -14,7 +14,7 @@
 
 <template name="tabContents">
   {{#each tabContents}}
-    <div class="tab-pane" id="{{name}}">
+    <div class="tab-pane" id="{{target}}">
       {{tabBody}}
     </div>
   {{/each}}
@@ -22,7 +22,7 @@
 
 <template name="tab">
   <li{{#if default}} class="default-tab"{{/if}}>
-    <a href="{{path}}" data-target="#{{name}}" data-toggle="tab">
+    <a href="{{path}}" data-target="#{{target}}" data-toggle="tab">
       {{label}}
     </a>
   </li>
