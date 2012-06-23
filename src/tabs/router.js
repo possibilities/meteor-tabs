@@ -18,6 +18,10 @@ var TabRouter = Backbone.Router.extend({
     var $default = $('.tabbable .default-tab a');
     if ($default.length > 0)
       return $default.attr('href');
+    else {
+      var $allTabs = $('.tabbable a');
+      return $($allTabs.get(0)).attr('href');
+    }
   }
 });
 
